@@ -3,8 +3,8 @@
 class Ship
 {
 public:
-	std::string shipType;
-	std::string shipPosition;
+	std::string shipType; // Carrier, battleship, etc.
+	std::string shipPosition; // 
 	std::string shipOrientation;
 	bool shipSunk;
 	
