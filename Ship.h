@@ -7,6 +7,7 @@ public:
 	std::string shipPosition; // Starting position
 	std::string shipOrientation; // Vertical or horizontal from starting position
 	bool shipOnSquare; // If the ship itself is on a square
+	bool isHit;
 	
 };
 

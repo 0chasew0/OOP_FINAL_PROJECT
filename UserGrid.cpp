@@ -490,9 +490,6 @@ void UserGrid::aGuess()
 	/* If guess hits, sink the entire ship */
 	if ((!AIGrid::AISGrid[number][letter].isHit || !AIGrid::AISGrid[number][letter].isMiss) && AIGrid::AISGrid[number][letter].shipOnSquare && !AIGrid::AISGrid[number][letter].shipSunk) {
 
-		userGGrid[number][letter].isHit = true;
-		AIGrid::AISGrid[number][letter].isHit = true;
-
 		/* These search through the grid for the certain ship and if one part of the ship was sunk, the rest of the ship must be sunk as well, since this is one hit 
 			kill mode*/
 
@@ -502,6 +499,8 @@ void UserGrid::aGuess()
 				for (int j = 0; j < userSGrid[i].size(); j++) {
 					if (AIGrid::AISGrid[i][j].carrier.shipOnSquare) {
 						AIGrid::AISGrid[i][j].shipSunk = true;
+						userGGrid[i][j].isHit = true;
+						AIGrid::AISGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -512,6 +511,8 @@ void UserGrid::aGuess()
 				for (int j = 0; j < userSGrid[i].size(); j++) {
 					if (AIGrid::AISGrid[i][j].battleship.shipOnSquare) {
 						AIGrid::AISGrid[i][j].shipSunk = true;
+						userGGrid[i][j].isHit = true;
+						AIGrid::AISGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -522,6 +523,8 @@ void UserGrid::aGuess()
 				for (int j = 0; j < userSGrid[i].size(); j++) {
 					if (AIGrid::AISGrid[i][j].cruiser.shipOnSquare) {
 						AIGrid::AISGrid[i][j].shipSunk = true;
+						userGGrid[i][j].isHit = true;
+						AIGrid::AISGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -532,6 +535,8 @@ void UserGrid::aGuess()
 				for (int j = 0; j < userSGrid[i].size(); j++) {
 					if (AIGrid::AISGrid[i][j].submarine.shipOnSquare) {
 						AIGrid::AISGrid[i][j].shipSunk = true;
+						userGGrid[i][j].isHit = true;
+						AIGrid::AISGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -542,6 +547,8 @@ void UserGrid::aGuess()
 				for (int j = 0; j < userSGrid[i].size(); j++) {
 					if (AIGrid::AISGrid[i][j].destroyer.shipOnSquare) {
 						AIGrid::AISGrid[i][j].shipSunk = true;
+						userGGrid[i][j].isHit = true;
+						AIGrid::AISGrid[i][j].isHit = true;
 					}
 				}
 			}

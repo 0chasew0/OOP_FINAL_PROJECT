@@ -327,9 +327,6 @@ void AIGrid::aGuess()
 	/* If guess hits/sinks */
 	if ((!UserGrid::userSGrid[number][letter].isHit || !UserGrid::userSGrid[number][letter].isMiss) && UserGrid::userSGrid[number][letter].shipOnSquare && !UserGrid::userSGrid[number][letter].shipSunk) {
 
-		AIGrid::AIGGrid[number][letter].isHit = true;
-		UserGrid::userSGrid[number][letter].isHit = true;
-
 		/* Explanation of this is found in UserGrid.cpp, they work the same way */
 		/* These are really inefficient time-complexity wise but I couldn't think of an alternative :( */
 		if (UserGrid::userSGrid[number][letter].carrier.shipOnSquare) {
@@ -337,6 +334,8 @@ void AIGrid::aGuess()
 				for (int j = 0; j < AISGrid[i].size(); j++) {
 					if (UserGrid::userSGrid[i][j].carrier.shipOnSquare) {
 						UserGrid::userSGrid[i][j].shipSunk = true;
+						UserGrid::userSGrid[i][j].isHit = true;
+						AIGrid::AIGGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -347,6 +346,8 @@ void AIGrid::aGuess()
 				for (int j = 0; j < AISGrid[i].size(); j++) {
 					if (UserGrid::userSGrid[i][j].battleship.shipOnSquare) {
 						UserGrid::userSGrid[i][j].shipSunk = true;
+						UserGrid::userSGrid[i][j].isHit = true;
+						AIGrid::AIGGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -357,6 +358,8 @@ void AIGrid::aGuess()
 				for (int j = 0; j < AISGrid[i].size(); j++) {
 					if (UserGrid::userSGrid[i][j].cruiser.shipOnSquare) {
 						UserGrid::userSGrid[i][j].shipSunk = true;
+						UserGrid::userSGrid[i][j].isHit = true;
+						AIGrid::AIGGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -367,6 +370,8 @@ void AIGrid::aGuess()
 				for (int j = 0; j < AISGrid[i].size(); j++) {
 					if (UserGrid::userSGrid[i][j].submarine.shipOnSquare) {
 						UserGrid::userSGrid[i][j].shipSunk = true;
+						UserGrid::userSGrid[i][j].isHit = true;
+						AIGrid::AIGGrid[i][j].isHit = true;
 					}
 				}
 			}
@@ -377,6 +382,8 @@ void AIGrid::aGuess()
 				for (int j = 0; j < AISGrid[i].size(); j++) {
 					if (UserGrid::userSGrid[i][j].destroyer.shipOnSquare) {
 						UserGrid::userSGrid[i][j].shipSunk = true;
+						UserGrid::userSGrid[i][j].isHit = true;
+						AIGrid::AIGGrid[i][j].isHit = true;
 					}
 				}
 			}
